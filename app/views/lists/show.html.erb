@@ -1,0 +1,18 @@
+<div class="container">
+  <%# <% <div>
+    <%= image_tag @list.poster_url, :style => "width: 25rem; height: 25rem; border-radius: 50%" %>
+  <%# </div> %>
+  <ul class="list-group">
+  <% @list.bookmarks.each do |list| %>
+    <li class="list-group-item"><%= list.comment %></li>
+    <br>
+  <% end %>
+</ul>
+
+<p><% @bookmarks.each do |bookmark|  %>
+    <%= bookmark.movie.title %>
+    <% end %>
+</p>
+  <p><%= link_to "Go back to list", lists_path %></p>
+  <p><%= link_to "Add a bookmark", new_list_bookmark_path(@list) %></p>
+</div>
