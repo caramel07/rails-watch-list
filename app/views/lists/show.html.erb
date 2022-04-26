@@ -13,6 +13,9 @@
     <%= bookmark.movie.title %>
     <% end %>
 </p>
-  <p><%= link_to "Go back to list", lists_path %></p>
-  <p><%= link_to "Add a bookmark", new_list_bookmark_path(@list) %></p>
+
+<%= cl_image_tag @list.photo.key, height: 250, width: 200, crop: :thumb %>
+
+  <p><%= link_to "Go back to list", lists_path, class: "btn btn-ghost" %></p>
+  <p><%= link_to "Add a bookmark", new_list_bookmark_path(@list), class: "btn btn-ghost"  %></p>
 </div>

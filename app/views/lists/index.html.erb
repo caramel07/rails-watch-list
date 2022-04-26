@@ -1,10 +1,14 @@
 <div class="container">
   <h1>List of movies</h1>
-  <ul>
-    <% @lists.each do |list| %>
-      <li><%= link_to list.name, list_path(list) %></li>
-    <% end %>
-  </ul>
+  <div class="card-list">
+      <% @lists.each do |list| %>
+        <%= cl_image_tag list.photo.key, height: 250, width: 200, crop: :thumb %>
+         <div class="card-list-infos">
+            <h2><%= link_to list.name, list_path(list) %></h2>
+         </div>
+      <% end %>
+</div>
 
+<%# <%= cl_image_tag("mfoonjiy8pmhdj394tp9", width: 150, height: 150, crop: :thumb, gravity: :face) %>
   <p><%= link_to "Add a list", new_list_path(@list), class: "btn btn-ghost" %></p>
 </div>
