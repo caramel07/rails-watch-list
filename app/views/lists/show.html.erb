@@ -1,20 +1,23 @@
 <div class="container">
+<h1>La liste <%= @list.name %></h1>
   <%# <% <div>
     <%= image_tag @list.poster_url, :style => "width: 25rem; height: 25rem; border-radius: 50%" %>
   <%# </div> %>
+<div class="card-list">
+  <%= cl_image_tag @list.photo.key, height: 250, width: 200, crop: :thumb %>
   <ul class="list-group">
-  <% @list.bookmarks.each do |list| %>
-    <li class="list-group-item"><%= list.comment %></li>
-    <br>
-  <% end %>
-</ul>
-
-<p><% @bookmarks.each do |bookmark|  %>
-    <%= bookmark.movie.title %>
+    <% @list.bookmarks.each do |list| %>
+      <li class="list-group-item"><%= list.comment %></li>
+      <br>
     <% end %>
-</p>
+  </ul>
+  <p><% @bookmarks.each do |bookmark|  %>
+      <%= bookmark.movie.title %>
+      <% end %>
+  </p>
+</div>
 
-<%= cl_image_tag @list.photo.key, height: 250, width: 200, crop: :thumb %>
+
 
   <p><%= link_to "Go back to list", lists_path, class: "btn btn-ghost" %></p>
   <p><%= link_to "Add a bookmark", new_list_bookmark_path(@list), class: "btn btn-ghost"  %></p>
